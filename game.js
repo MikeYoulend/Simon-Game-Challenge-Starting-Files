@@ -1,5 +1,5 @@
 //alert("Benvenuto in Simon Game")
-
+let userClickedPattern = []
 let gamePattern = []
 let buttonColours = ["red", "blue", "yellow", "green"]
 
@@ -14,15 +14,23 @@ function nextSequence(){
 
     $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
 
-    var audio = new Audio("sounds/" + randomChosenColour + ".mp3");
-    audio.play();
+   
 
     $(".btn").on("click", function() {
         let userChosenColour = $(this).attr("id"); //e.id non funziona
-        console.log(userChosenColour);
+        userClickedPattern.push(userChosenColour);
+        console.log(userClickedPattern);
+        playSound(userChosenColour);
     })
+
+    
     
 }
 
 nextSequence();
+
+function playSound(userColor){
+    var audio = new Audio("sounds/" + userColor + ".mp3");
+    audio.play();
+}
 
