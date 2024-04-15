@@ -23,14 +23,13 @@ function nextSequence(){
         playSound(userChosenColour);
     })
 
-    
-    
+    playSound(randomChosenColour)
 }
 
 nextSequence();
 
-function playSound(userColor){
-    var audio = new Audio("sounds/" + userColor + ".mp3");
+function playSound(ClickuserColor){
+    var audio = new Audio("sounds/" + ClickuserColor + ".mp3");
     audio.play();
 }
 
