@@ -21,9 +21,11 @@ function nextSequence(){
         userClickedPattern.push(userChosenColour);
         console.log(userClickedPattern);
         playSound(userChosenColour);
+        animatePress(userChosenColour)
     })
 
     playSound(randomChosenColour)
+    animatePress()
 }
 
 nextSequence();
@@ -33,3 +35,10 @@ function playSound(ClickuserColor){
     audio.play();
 }
 
+function animatePress(currentColor){
+    $("#" + currentColor).addClass("pressed");
+    
+    setTimeout(function(){
+        $("#" + currentColor).removeClass("pressed");
+    }, 100)
+}
